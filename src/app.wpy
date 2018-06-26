@@ -1,0 +1,86 @@
+<style lang="scss" src="./styles/zent.scss"></style>
+<style lang="scss" src="./styles/base.scss"></style>
+
+<style lang="scss">
+@import "./styles/weui";
+@import "./styles/weui-extend";
+</style>
+<style lang="scss">
+@import "./styles/iconfont.scss";
+</style>
+
+
+<script>
+import wepy from "wepy";
+import "wepy-async-function";
+
+export default class extends wepy.app {
+  globalData = {
+    version: "v1.0",
+    userInfo: null
+  };
+  config = {
+    pages: [
+      "pages/home/index",
+      "pages/service/index",
+      "pages/my/index",
+      "pages/login/index"
+    ],
+    window: {
+      backgroundTextStyle: "light",
+      navigationBarBackgroundColor: "#1296DB",
+      navigationBarTitleText: "demo",
+      navigationBarTextStyle: "#fff",
+      disableScroll: true,
+      enablePullDownRefresh: false
+    },
+    tabBar: {
+      color: "#a0a0a0",
+      selectedColor: "#0082d0",
+      borderStyle: "white",
+      backgroundColor: "#FAFAFA",
+      list: [
+        {
+          iconPath: "images/tab/home.png",
+          selectedIconPath: "images/tab/home-active.png",
+          pagePath: "pages/home/index",
+          text: "主页"
+        },
+        {
+          iconPath: "images/tab/service.png",
+          selectedIconPath: "images/tab/service-active.png",
+          pagePath: "pages/service/index",
+          text: "服务"
+        },
+        {
+          iconPath: "images/tab/user.png",
+          selectedIconPath: "images/tab/user-active.png",
+          pagePath: "pages/my/index",
+          text: "我的"
+        }
+      ]
+    }
+  };
+
+  constructor() {
+    super();
+    this.use("requestfix");
+    this.use("promisify");
+  }
+
+  onLaunch() {
+    wx.getUserInfo({
+      success: res => {
+        wepy.$instance.globalData.userInfo = res.userInfo;
+      }
+    });
+    if (!wx.getStorageSync("token")) {
+      // wx.login({
+      //   success: function(res) {
+      //     console.log(res);
+      //   }
+      // });
+    }
+  }
+}
+</script>

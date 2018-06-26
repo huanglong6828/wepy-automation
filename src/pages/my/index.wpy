@@ -1,0 +1,16 @@
+<template>
+  <view class="container">my
+  </view>
+</template>
+<script>
+import wepy from "wepy";
+export default class MyIndex extends wepy.page {
+  config = {};
+  data = {};
+  components = {};
+  methods = {};
+
+  events = {};
+  onLoad() {}
+}
+</script>

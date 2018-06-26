@@ -1,0 +1,37 @@
+<template>
+    <view url="{{url}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" @tap="tap({{url}})">
+       <view class="weui-cell__hd" wx:if='{{icon}}'>
+            <image src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+        </view>
+        <view class="weui-cell__bd">{{title}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">{{describe}}</view>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+import base from '../../mixins/base';
+
+export default class Navigator extends wepy.component {
+  props = {
+    url: {},
+    title: {},
+    describe: {},
+    type: {},
+    icon: {}
+  };
+  methods = {
+    tap(url) {
+      if (this.url != null && this.checkFunctionAuth(this.type)) {
+        this.$root.$navigate(url);
+      }
+      this.$emit('tap');
+    }
+  };
+  mixins = [base];
+}
+</script>
+
+<style lang="scss">
+@import '../../styles/variable';
+</style>

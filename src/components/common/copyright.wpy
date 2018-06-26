@@ -1,0 +1,29 @@
+<template>
+  <view class="weui-footer {{buttom == 'true' ? 'weui-footer_fixed-bottom' : 'mt20'}} ">
+    <view class="weui-footer__links">
+      <view class="weui-footer__link" style='color:#262626;'>中景恒基云端物联网科技成都有限公司</view>
+    </view>
+    <view class="weui-footer__text">Copyright © 2018 梯梯达 {{version}}</view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class Copyright extends wepy.component {
+  props = {
+    buttom: {
+      default: 'false'
+    }
+  };
+  data = {
+    version: null
+  };
+  onLoad() {
+    this.version = wepy.$instance.globalData.version;
+  }
+}
+</script>
+
+<style lang="scss">
+@import '../../styles/variable';
+</style>

@@ -1,0 +1,31 @@
+<template>
+  <view>LoginIndex
+   <button open-type="getUserInfo" bindgetuserinfo="userInfoHandler"> Click me </button> 
+  </view>
+</template>
+<script>
+import wepy from "wepy";
+import { requestLogin } from "@/api/api_base";
+export default class LoginIndex extends wepy.page {
+  config = {};
+  components = {};
+
+  data = {};
+  methods = {
+    userInfoHandler(res) {
+      console.log(res);
+    }
+  };
+
+  events = {};
+  onLoad() {
+    requestLogin({
+      type: 1,
+      username: "username",
+      password: "password"
+    }).then(res => {
+      console.log(res);
+    });
+  }
+}
+</script>

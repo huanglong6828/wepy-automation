@@ -1,0 +1,17 @@
+<template>
+    <view>服务 </view>
+</template>
+<script>
+import wepy from 'wepy';
+
+export default class ServiceIndex extends wepy.page {
+  config = {};
+  components = {};
+
+  data = {};
+  methods = {};
+
+  events = {};
+  onLoad() {}
+}
+</script>
