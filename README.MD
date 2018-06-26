@@ -1,5 +1,5 @@
 # wepy-automation
-
+  感谢[wepy-plugin-replace](http://npm.taobao.org/package/wepy-plugin-replace)，[Fly.js](https://github.com/wendux/fly/blob/master/README-CH.md)
 ## 项目描述
 - fly.js拦截器
 - 多环境参数配置
