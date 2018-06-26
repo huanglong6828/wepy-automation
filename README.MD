@@ -4,7 +4,7 @@
 - fly.js拦截器
 - 多环境参数配置
 
-> 相关文章：微信小程序之wepy自动化架构搭建（fly+wepy-plugin-replace）
+> 相关文章：[微信小程序之wepy自动化架构搭建（fly+wepy-plugin-replace）](https://github.com/huanglong6828/blog/issues/5)
 
 ## 部署说明
 
